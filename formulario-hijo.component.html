@@ -1,0 +1,15 @@
+html
+<form [formGroup]="formulario" (ngSubmit)="submit()">
+  <div class="mb-3">
+    <label>Nombre:</label>
+    <input type="text" class="form-control" formControlName="nombre">
+    <small class="text-danger" *ngIf="formulario.get('nombre')?.hasError('required')">Campo requerido</small>
+    <small class="text-danger" *ngIf="formulario.get('nombre')?.hasError('nombreInvalido')">Nombre inválido</small>
+  </div>
+  <div class="mb-3">
+    <label>Edad:</label>
+    <input type="text" class="form-control" formControlName="edad">
+    <small class="text-danger" *ngIf="formulario.get('edad')?.hasError('required')">Campo requerido</small>
+  </div>
+  <button class="btn btn-primary" type="submit">Enviar</button>
+</form>
